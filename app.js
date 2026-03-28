@@ -1,0 +1,5 @@
+App({
+  onLaunch() {
+    // Project launched
+  }
+})

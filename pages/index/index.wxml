@@ -1,0 +1,52 @@
+<view class="container">
+  <!-- Header / Title -->
+  <view class="header">
+    <text class="title">水晶球之旅</text>
+    <text class="subtitle">让命运决定你的数字</text>
+  </view>
+
+  <!-- Crystal Ball Section -->
+  <view class="crystal-ball-container">
+    <view class="crystal-ball {{isRotating ? 'rotating' : ''}}">
+      <view class="reflection-top"></view>
+      <view class="content-wrapper">
+        <block wx:if="{{results.length > 0 && !isRotating}}">
+          <view class="result-list">
+            <view wx:for="{{results}}" wx:key="index" class="result-item show">
+              {{item}}
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="placeholder {{isRotating ? 'pulse' : ''}}">
+            {{isRotating ? '???' : '🔮'}}
+          </view>
+        </block>
+      </view>
+      <view class="reflection-bottom"></view>
+    </view>
+    <view class="crystal-base"></view>
+  </view>
+
+  <!-- Settings and Controls -->
+  <view class="controls-panel">
+    <view class="settings-group">
+      <view class="setting-item">
+        <text class="label">最小值</text>
+        <input class="input" type="number" value="{{min}}" bindinput="onMinInput" />
+      </view>
+      <view class="setting-item">
+        <text class="label">最大值</text>
+        <input class="input" type="number" value="{{max}}" bindinput="onMaxInput" />
+      </view>
+      <view class="setting-item">
+        <text class="label">个数</text>
+        <input class="input" type="number" value="{{count}}" bindinput="onCountInput" />
+      </view>
+    </view>
+    
+    <button class="generate-btn {{isRotating ? 'disabled' : ''}}" bindtap="generateNumbers" disabled="{{isRotating}}">
+      {{isRotating ? '正在预测...' : '启动水晶球'}}
+    </button>
+  </view>
+</view>
