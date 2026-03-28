@@ -6,7 +6,7 @@
     "backgroundColor": "#F7F7F7",
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTitleText": "水晶球之旅",
+    "navigationBarTitleText": "随机数水晶球",
     "navigationBarTextStyle": "black",
     "navigationStyle": "default"
   },

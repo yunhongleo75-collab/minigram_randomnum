@@ -13,7 +13,7 @@
 }
 
 .title {
-  font-size: 72rpx;
+  font-size: 52rpx;
   font-weight: bold;
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   -webkit-background-clip: text;
@@ -162,8 +162,9 @@
 }
 
 .label {
-  font-size: 24rpx;
-  color: #666;
+  font-size: 36rpx;
+  color: #764ba2;
+  font-weight: bold;
   margin-bottom: 15rpx;
 }
 
