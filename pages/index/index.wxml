@@ -1,8 +1,12 @@
 <view class="container">
+  <!-- Custom Centered Navigation Bar -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+    <view class="nav-title">随机数水晶球</view>
+  </view>
+
   <!-- Header / Title -->
   <view class="header">
     <text class="title">水晶球之旅</text>
-    <text class="subtitle">让命运决定你的数字</text>
   </view>
 
   <!-- Crystal Ball Section -->
@@ -12,7 +16,7 @@
       <view class="content-wrapper">
         <block wx:if="{{results.length > 0 && !isRotating}}">
           <view class="result-list">
-            <view wx:for="{{results}}" wx:key="index" class="result-item show">
+            <view wx:for="{{results}}" wx:key="index" class="result-item show {{results.length > 1 ? 'small' : ''}}">
               {{item}}
             </view>
           </view>
@@ -48,5 +52,27 @@
     <button class="generate-btn {{isRotating ? 'disabled' : ''}}" bindtap="generateNumbers" disabled="{{isRotating}}">
       {{isRotating ? '正在预测...' : '启动水晶球'}}
     </button>
+  </view>
+
+  <!-- Result Scroll Modal -->
+  <view class="scroll-overlay {{showScroll ? 'active' : ''}}" bindtap="closeScroll">
+    <view class="scroll-container {{showScroll ? 'slide-up' : ''}}" catchtap="true">
+      <view class="scroll-header">
+        <view class="scroll-spindle left"></view>
+        <view class="scroll-paper">生成结果</view>
+        <view class="scroll-spindle right"></view>
+      </view>
+      <scroll-view scroll-y class="scroll-body">
+        <view class="scroll-result-list">
+          <view wx:for="{{results}}" wx:key="index" class="scroll-result-item">
+            <text class="result-index">{{index + 1}}</text>
+            <text class="result-value">{{item}}</text>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="scroll-footer">
+        <button class="close-btn" bindtap="closeScroll">返回</button>
+      </view>
+    </view>
   </view>
 </view>

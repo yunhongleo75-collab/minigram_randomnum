@@ -8,7 +8,7 @@
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "随机数水晶球",
     "navigationBarTextStyle": "black",
-    "navigationStyle": "default"
+    "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

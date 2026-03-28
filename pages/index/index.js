@@ -4,25 +4,56 @@ Page({
     max: 100,
     count: 1,
     results: [],
-    isRotating: false
+    isRotating: false,
+    statusBarHeight: 20,
+    navBarHeight: 44,
+    showScroll: false
+  },
+
+  onLoad() {
+    const systemInfo = wx.getSystemInfoSync();
+    const menuButtonInfo = wx.getMenuButtonBoundingClientRect();
+    
+    // Calculate heights to align with the "Capsule" button
+    const statusBarHeight = systemInfo.statusBarHeight;
+    const navBarHeight = (menuButtonInfo.top - systemInfo.statusBarHeight) * 2 + menuButtonInfo.height;
+
+    this.setData({
+      statusBarHeight,
+      navBarHeight
+    });
   },
 
   onMinInput(e) {
-    this.setData({ min: parseInt(e.detail.value) || 0 });
+    this.setData({ min: e.detail.value });
   },
 
   onMaxInput(e) {
-    this.setData({ max: parseInt(e.detail.value) || 0 });
+    this.setData({ max: e.detail.value });
   },
 
   onCountInput(e) {
-    let count = parseInt(e.detail.value) || 1;
-    if (count > 10) count = 10; // Limit to 10 for UI reasons
-    this.setData({ count });
+    this.setData({ count: e.detail.value });
   },
 
   generateNumbers() {
-    const { min, max, count } = this.data;
+    let { min, max, count } = this.data;
+    
+    // Parse and validate values
+    min = parseInt(min);
+    max = parseInt(max);
+    count = parseInt(count) || 1;
+
+    if (isNaN(min) || isNaN(max)) {
+      wx.showToast({
+        title: '请输入有效的数字',
+        icon: 'none'
+      });
+      return;
+    }
+
+    if (count > 30) count = 30;
+    if (count < 1) count = 1;
     
     if (min >= max) {
       wx.showToast({
@@ -47,7 +78,8 @@ Page({
 
       this.setData({
         results: newResults,
-        isRotating: false
+        isRotating: false,
+        showScroll: count > 1 // Show scroll only for multiple results
       });
 
       // Haptic feedback if available
@@ -55,5 +87,12 @@ Page({
         wx.vibrateShort({ type: 'medium' });
       }
     }, 2000); // 2 seconds of rotation
+  },
+
+  closeScroll() {
+    this.setData({ 
+      showScroll: false,
+      results: []
+    });
   }
 })
