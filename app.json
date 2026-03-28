@@ -3,11 +3,11 @@
     "pages/index/index"
   ],
   "window": {
-    "backgroundColor": "#121212",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#121212",
-    "navigationBarTitleText": "水晶球随机数",
-    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F7F7F7",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "水晶球之旅",
+    "navigationBarTextStyle": "black",
     "navigationStyle": "default"
   },
   "sitemapLocation": "sitemap.json",
