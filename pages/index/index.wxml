@@ -16,7 +16,7 @@
       <view class="content-wrapper">
         <block wx:if="{{results.length > 0 && !isRotating}}">
           <view class="result-list">
-            <view wx:for="{{results}}" wx:key="index" class="result-item show {{results.length > 1 ? 'small' : ''}}">
+            <view wx:for="{{results}}" wx:key="index" class="result-item show {{results.length === 2 ? 'medium' : (results.length === 3 ? 'small' : '')}}">
               {{item}}
             </view>
           </view>
@@ -30,6 +30,11 @@
       <view class="reflection-bottom"></view>
     </view>
     <view class="crystal-base"></view>
+  </view>
+
+  <!-- Reset Button (conditional) -->
+  <view wx:if="{{results.length > 0 && !showScroll && !isRotating}}" class="reset-wrapper">
+    <text class="reset-link" bindtap="resetResults">重置</text>
   </view>
 
   <!-- Settings and Controls -->
@@ -50,7 +55,7 @@
     </view>
     
     <button class="generate-btn {{isRotating ? 'disabled' : ''}}" bindtap="generateNumbers" disabled="{{isRotating}}">
-      {{isRotating ? '正在预测...' : '启动水晶球'}}
+      {{isRotating ? '正在生成...' : '生成'}}
     </button>
   </view>
 
@@ -69,10 +74,10 @@
             <text class="result-value">{{item}}</text>
           </view>
         </view>
+        <view class="scroll-footer">
+          <button class="close-btn" bindtap="closeScroll">返回</button>
+        </view>
       </scroll-view>
-      <view class="scroll-footer">
-        <button class="close-btn" bindtap="closeScroll">返回</button>
-      </view>
     </view>
   </view>
 </view>

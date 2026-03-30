@@ -79,7 +79,7 @@ Page({
       this.setData({
         results: newResults,
         isRotating: false,
-        showScroll: count > 1 // Show scroll only for multiple results
+        showScroll: count > 3 || newResults.some(n => n >= 1000000)
       });
 
       // Haptic feedback if available
@@ -94,5 +94,12 @@ Page({
       showScroll: false,
       results: []
     });
+  },
+
+  resetResults() {
+    this.setData({ results: [] });
+    if (wx.vibrateShort) {
+      wx.vibrateShort({ type: 'light' });
+    }
   }
 })

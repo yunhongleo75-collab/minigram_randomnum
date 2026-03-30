@@ -36,7 +36,7 @@
 .title {
   font-size: 60rpx;
   font-weight: bold;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   -webkit-background-clip: text;
   color: transparent;
   display: block;
@@ -65,16 +65,16 @@
   width: 400rpx;
   height: 400rpx;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.4) 0%, rgba(123, 47, 247, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%);
+  background: radial-gradient(circle at 30% 30%, rgba(30, 136, 229, 0.4) 0%, rgba(13, 71, 161, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%);
   box-shadow: 
-    0 20rpx 60rpx rgba(123, 47, 247, 0.2),
+    0 20rpx 60rpx rgba(13, 71, 161, 0.2),
     inset 0 0 80rpx rgba(255, 255, 255, 0.5);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(12px);
-  border: 4rpx solid rgba(123, 47, 247, 0.3);
+  backdrop-filter: blur(14px);
+  border: 4rpx solid rgba(13, 71, 161, 0.3);
   transition: all 0.5s ease-out;
   z-index: 2;
 }
@@ -82,7 +82,7 @@
 .crystal-ball.rotating {
   animation: rotateBall 2s linear infinite;
   box-shadow: 
-    0 40rpx 100rpx rgba(123, 47, 247, 0.4),
+    0 40rpx 100rpx rgba(13, 71, 161, 0.4),
     inset 0 0 120rpx rgba(255, 255, 255, 0.6);
 }
 
@@ -120,6 +120,30 @@
   z-index: 1;
 }
 
+.reset-wrapper {
+  margin-top: -40rpx;
+  margin-bottom: 40rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.reset-link {
+  font-size: 40rpx;
+  color: #999;
+  text-decoration: underline;
+  opacity: 0.8;
+  padding: 10rpx 40rpx;
+  letter-spacing: 2rpx;
+}
+
+.reset-link:active {
+  opacity: 1;
+  color: #666;
+}
+
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -140,22 +164,28 @@
 
 .result-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; /* Stack vertically for 1-2 results */
   justify-content: center;
-  gap: 20rpx;
-  padding: 40rpx;
+  align-items: center;
+  gap: 10rpx;
+  max-width: 90%;
 }
 
 .result-item {
   font-size: 130rpx;
   font-weight: bold;
-  color: #7b2ff7;
-  text-shadow: 0 4rpx 25rpx rgba(123, 47, 247, 0.5);
+  color: #1e88e5;
+  text-shadow: 0 4rpx 25rpx rgba(30, 136, 229, 0.5);
+}
+
+.result-item.medium {
+  font-size: 100rpx;
+  text-shadow: 0 4rpx 20rpx rgba(30, 136, 229, 0.45);
 }
 
 .result-item.small {
-  font-size: 65rpx;
-  text-shadow: 0 2rpx 15rpx rgba(123, 47, 247, 0.4);
+  font-size: 80rpx;
+  text-shadow: 0 2rpx 15rpx rgba(30, 136, 229, 0.4);
 }
 
 .result-item.show {
@@ -189,7 +219,7 @@
 
 .label {
   font-size: 40rpx;
-  color: #764ba2;
+  color: #1a237e;
   font-weight: bold;
   margin-bottom: 15rpx;
 }
@@ -209,13 +239,13 @@
   width: 100%;
   height: 100rpx;
   line-height: 100rpx;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: white;
   border-radius: 50rpx;
   font-size: 40rpx;
   font-weight: bold;
   border: none;
-  box-shadow: 0 10rpx 30rpx rgba(118, 75, 162, 0.4);
+  box-shadow: 0 10rpx 30rpx rgba(30, 136, 229, 0.4);
   transition: all 0.3s;
 }
 
@@ -251,8 +281,8 @@
 .scroll-container {
   position: relative;
   width: 85%;
-  max-height: 70vh;
-  background: #fdfaf2; /* Parchment-like color */
+  max-height: 80vh; /* Increased to allow more room */
+  background: #fdfaf2;
   border-radius: 40rpx;
   display: flex;
   flex-direction: column;
@@ -271,7 +301,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  background: linear-gradient(to bottom, #764ba2 0%, #667eea 100%);
+  background: linear-gradient(to bottom, #1a237e 0%, #283593 100%);
   border-radius: 40rpx 40rpx 0 0;
   color: white;
   font-size: 36rpx;
@@ -294,7 +324,8 @@
 .scroll-spindle.right { right: -20rpx; }
 
 .scroll-body {
-  flex: 1;
+  height: 600rpx; /* Set an explicit height for the scroll-view to function correctly */
+  max-height: 65vh; 
   padding: 40rpx;
   box-sizing: border-box;
 }
@@ -312,7 +343,7 @@
   padding: 20rpx 30rpx;
   border-radius: 20rpx;
   box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
-  border: 1px solid rgba(118, 75, 162, 0.1);
+  border: 1px solid rgba(26, 35, 126, 0.1);
 }
 
 .result-index {
@@ -325,7 +356,7 @@
 .result-value {
   font-size: 40rpx;
   font-weight: bold;
-  color: #764ba2;
+  color: #1a237e;
 }
 
 .scroll-footer {
@@ -338,15 +369,20 @@
   width: 100%;
   height: 80rpx;
   line-height: 80rpx;
-  background: rgba(118, 75, 162, 0.1);
-  color: #764ba2;
-  border: 4rpx solid #764ba2;
+  background: rgba(26, 35, 126, 0.1);
+  color: #1a237e;
+  border: 4rpx solid #1a237e;
   border-radius: 40rpx;
   font-size: 28rpx;
   font-weight: bold;
 }
 
 /* Animations rewrite */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes rotateBall {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
