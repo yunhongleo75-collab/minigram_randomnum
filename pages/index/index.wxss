@@ -120,29 +120,6 @@
   z-index: 1;
 }
 
-.reset-wrapper {
-  margin-top: -40rpx;
-  margin-bottom: 40rpx;
-  height: 60rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 0.5s ease-out;
-}
-
-.reset-link {
-  font-size: 40rpx;
-  color: #999;
-  text-decoration: underline;
-  opacity: 0.8;
-  padding: 10rpx 40rpx;
-  letter-spacing: 2rpx;
-}
-
-.reset-link:active {
-  opacity: 1;
-  color: #666;
-}
 
 .content-wrapper {
   display: flex;

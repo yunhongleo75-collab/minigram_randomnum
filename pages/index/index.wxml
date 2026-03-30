@@ -32,10 +32,6 @@
     <view class="crystal-base"></view>
   </view>
 
-  <!-- Reset Button (conditional) -->
-  <view wx:if="{{results.length > 0 && !showScroll && !isRotating}}" class="reset-wrapper">
-    <text class="reset-link" bindtap="resetResults">重置</text>
-  </view>
 
   <!-- Settings and Controls -->
   <view class="controls-panel">

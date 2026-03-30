@@ -96,10 +96,4 @@ Page({
     });
   },
 
-  resetResults() {
-    this.setData({ results: [] });
-    if (wx.vibrateShort) {
-      wx.vibrateShort({ type: 'light' });
-    }
-  }
 })
