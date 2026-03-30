@@ -50,9 +50,12 @@
       </view>
     </view>
     
-    <button class="generate-btn {{isRotating ? 'disabled' : ''}}" bindtap="generateNumbers" disabled="{{isRotating}}">
-      {{isRotating ? '正在生成...' : '生成'}}
-    </button>
+    <view class="btn-group">
+      <button class="btn reset-btn {{isRotating ? 'disabled' : ''}}" bindtap="resetResults" disabled="{{isRotating}}">重置</button>
+      <button class="btn generate-btn {{isRotating ? 'disabled' : ''}}" bindtap="generateNumbers" disabled="{{isRotating}}">
+        {{isRotating ? '正在生成...' : '生成'}}
+      </button>
+    </view>
   </view>
 
   <!-- Result Scroll Modal -->

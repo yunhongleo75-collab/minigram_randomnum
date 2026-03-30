@@ -212,24 +212,52 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.generate-btn {
-  width: 100%;
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 30rpx;
+}
+
+.btn {
+  flex: 1;
   height: 100rpx;
-  line-height: 100rpx;
+  padding: 0;
+  margin: 0;
+  border-radius: 50rpx;
+  font-size: 38rpx;
+  font-weight: bold;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.reset-btn {
+  background: #ffffff;
+  color: #1e3c72;
+  border: 4rpx solid #1e3c72;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.05);
+}
+
+.generate-btn {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: white;
-  border-radius: 50rpx;
-  font-size: 40rpx;
-  font-weight: bold;
   border: none;
   box-shadow: 0 10rpx 30rpx rgba(30, 136, 229, 0.4);
-  transition: all 0.3s;
+}
+
+.btn.disabled {
+  opacity: 0.6;
+  background: #f0f0f0;
+  color: #999;
+  border-color: #ddd;
+  box-shadow: none;
 }
 
 .generate-btn.disabled {
-  opacity: 0.6;
   background: #444;
-  box-shadow: none;
+  color: #888;
 }
 
 /* Result Scroll Modal */
