@@ -1,7 +1,7 @@
 <view class="container">
   <!-- Custom Centered Navigation Bar -->
-  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
-    <view class="nav-title">随机数水晶球</view>
+  <view class="nav-bar" style="height: {{totalBarHeight}}px;">
+    <view class="nav-title" style="top: {{navTitleTop}}px; height: {{navTitleHeight}}px; line-height: {{navTitleHeight}}px;">随机数水晶球</view>
   </view>
 
   <!-- Header / Title -->

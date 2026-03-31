@@ -23,17 +23,21 @@ Page({
     // Calculate heights to align with the "Capsule" button
     const statusBarHeight = windowInfo.statusBarHeight || 20;
     let navBarHeight = 44;
+    let navTitleTop = 26;
+    let navTitleHeight = 32;
     
     if (menuButtonInfo && menuButtonInfo.top && menuButtonInfo.height) {
       navBarHeight = (menuButtonInfo.top - statusBarHeight) * 2 + menuButtonInfo.height;
-    } else {
-      // Default fallback for navbar height if capsules are not yet available
-      navBarHeight = 44;
+      navTitleTop = menuButtonInfo.top;
+      navTitleHeight = menuButtonInfo.height;
     }
 
     this.setData({
       statusBarHeight,
-      navBarHeight
+      navBarHeight,
+      navTitleTop,
+      navTitleHeight,
+      totalBarHeight: statusBarHeight + navBarHeight
     });
   },
 
