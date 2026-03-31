@@ -1,0 +1,7 @@
+{
+  "desc": "关于小程序 sitemap 配置详情请查询官网文档",
+  "rules": [{
+    "action": "allow",
+    "page": "*"
+  }]
+}

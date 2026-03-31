@@ -22,8 +22,15 @@
           </view>
         </block>
         <block wx:else>
-          <view class="placeholder {{isRotating ? 'pulse' : ''}}">
-            {{isRotating ? '???' : '🔮'}}
+          <view class="stars-container {{isRotating ? 'rotating-stars' : ''}}">
+            <text wx:if="{{isRotating}}" class="rotating-placeholder">???</text>
+            <block wx:else>
+              <view class="star star-1"></view>
+              <view class="star star-2"></view>
+              <view class="star star-3"></view>
+              <view class="star star-4"></view>
+              <view class="star star-5"></view>
+            </block>
           </view>
         </block>
       </view>

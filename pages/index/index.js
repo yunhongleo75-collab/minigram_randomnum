@@ -11,12 +11,25 @@ Page({
   },
 
   onLoad() {
-    const systemInfo = wx.getSystemInfoSync();
-    const menuButtonInfo = wx.getMenuButtonBoundingClientRect();
+    // Replace deprecated getSystemInfoSync with getWindowInfo
+    const windowInfo = wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync();
+    
+    // Safety check for menu button info as it can sometimes return 0 on some systems at launch
+    let menuButtonInfo = null;
+    if (wx.getMenuButtonBoundingClientRect) {
+      menuButtonInfo = wx.getMenuButtonBoundingClientRect();
+    }
     
     // Calculate heights to align with the "Capsule" button
-    const statusBarHeight = systemInfo.statusBarHeight;
-    const navBarHeight = (menuButtonInfo.top - systemInfo.statusBarHeight) * 2 + menuButtonInfo.height;
+    const statusBarHeight = windowInfo.statusBarHeight || 20;
+    let navBarHeight = 44;
+    
+    if (menuButtonInfo && menuButtonInfo.top && menuButtonInfo.height) {
+      navBarHeight = (menuButtonInfo.top - statusBarHeight) * 2 + menuButtonInfo.height;
+    } else {
+      // Default fallback for navbar height if capsules are not yet available
+      navBarHeight = 44;
+    }
 
     this.setData({
       statusBarHeight,
